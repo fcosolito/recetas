@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ItemKey {
-    private Long recetaId;
-    private Long ingredienteId;
+    private Long receta_id;
+    private Long ingrediente_id;
 
 }

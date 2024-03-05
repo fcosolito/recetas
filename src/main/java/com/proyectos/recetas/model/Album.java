@@ -1,6 +1,7 @@
 package com.proyectos.recetas.model;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -17,7 +18,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 public class Album {
@@ -28,11 +28,14 @@ public class Album {
     private String nombre;
     @OneToMany
     @JoinColumn(name = "album_id")
-    private List<AlbumReceta> albumRecetas;
+    private Set<AlbumReceta> albumRecetas;
     @ManyToMany(cascade = { CascadeType.PERSIST })
     @JoinTable(name = "album_imagen", joinColumns = @JoinColumn(name = "album_id"), inverseJoinColumns = @JoinColumn(name = "imagen_id"))
-    private List<Imagen> imagenes;
+    private Set<Imagen> imagenes;
     @ManyToOne
     private Usuario autor;
 
+    public Album() {
+        this.albumRecetas = new HashSet<>();
+    }
 }

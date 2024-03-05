@@ -4,6 +4,7 @@ import com.proyectos.recetas.key.ItemKey;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,7 @@ public class Item {
     private Integer cantidad;
     private String unidadMedida;
     @ManyToOne
+    @JoinColumn(name = "ingrediente")
     private Ingrediente ingrediente;
 
 }

@@ -8,7 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AlbumRecetaKey {
-    private Long albumId;
-    private Long recetaId;
+    private Long album_id;
+    private Long receta_id;
 
 }
